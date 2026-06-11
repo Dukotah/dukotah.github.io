@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 5-Minute Pre-Launch Checklist for AI-Generated Apps | Copper Bay Labs</title>
+<meta name="description" content="Shipping an AI-built app? Run these 6 free, in-browser checks first: leaked secrets, exposed files, vulnerable dependencies, weak security headers, accessibility, and privacy. No signup, nothing uploaded.">
+<link rel="canonical" href="https://labs.copperbaytech.com/checklist/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The 5-Minute Pre-Launch Checklist for AI-Generated Apps">
+<meta property="og:description" content="Six free, in-browser checks to run before you ship an AI-generated app — secrets, exposure, dependencies, headers, accessibility, privacy.">
+<meta property="og:url" content="https://labs.copperbaytech.com/checklist/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .article { max-width: 70ch; margin: 0 auto; }
+  .article h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.18; margin: 0 0 10px; }
+  .article .dek { font-size: 1.15rem; color: var(--muted); margin: 0 0 8px; }
+  .article .meta { color: var(--muted); font-size: .9rem; margin: 0 0 28px; }
+  .article h2 { font-size: 1.4rem; margin: 36px 0 8px; }
+  .article h2 .num { color: var(--copper); }
+  .article p, .article li { font-size: 1.05rem; }
+  .article ul, .article ol { padding-left: 1.2em; }
+  .article li { margin: 6px 0; }
+  .step-cta { display: inline-flex; align-items: center; gap: 8px; margin: 10px 0 4px;
+    background: var(--copper-tint); color: var(--copper-dark); border: 1px solid var(--line);
+    border-radius: 999px; padding: 7px 16px; font-weight: 600; text-decoration: none; }
+  .step-cta:hover { border-color: var(--copper); }
+  .callout { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--copper);
+    border-radius: var(--radius); padding: 16px 20px; margin: 22px 0; }
+  .checklist { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 8px 24px; margin: 24px 0; }
+  .checklist li { list-style: none; position: relative; padding-left: 6px; }
+  .checklist ul { padding-left: 1.4em; }
+</style>
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "Article",
+  "headline": "The 5-Minute Pre-Launch Checklist for AI-Generated Apps",
+  "description": "Six free, in-browser checks to run before you ship an AI-generated app.",
+  "author": { "@type": "Organization", "name": "Copper Bay Labs" },
+  "publisher": { "@type": "Organization", "name": "Copper Bay Labs", "url": "https://labs.copperbaytech.com/" },
+  "mainEntityOfPage": "https://labs.copperbaytech.com/checklist/" }
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="wrap">
+  <a class="brand" href="/"><img src="../favicon.svg" alt=""> Copper Bay Labs</a>
+  <nav class="site" aria-label="Primary"><a href="/#suite">Ship-safety</a><a href="/#business">Business</a></nav>
+</div></header>
+
+<main id="main" class="wrap">
+<article class="article">
+  <h1>The 5-Minute Pre-Launch Checklist for AI-Generated Apps</h1>
+  <p class="dek">You shipped fast — often with an AI writing most of the code. Here are the six things that quietly get people, and how to check each one in about a minute. Free, no signup, and nothing you paste leaves your browser.</p>
+  <p class="meta">By Copper Bay Labs · Updated June 2026</p>
+
+  <h2>Why AI-generated apps need a different checklist</h2>
+  <p>AI coding tools optimize for <em>"works on my machine,"</em> not <em>"safe in public."</em> They'll happily hardcode an API key to make a demo run, leave a <code>.env</code> in a folder that gets deployed, pull in a dependency that's three years abandoned, or skip the security headers and accessibility attributes a human would add out of habit. None of that breaks the build — so it ships.</p>
+  <p>The good news: the handful of issues that actually cause real pain are fast to check. Run these six before you flip your app live. Every tool below runs entirely in your browser, so it's safe to paste real code and real secrets.</p>
+
+  <h2><span class="num">1.</span> Did you leak a secret?</h2>
+  <p>The most common AI mistake: an API key, token, or password written directly into the code instead of an environment variable. Paste your code or your <code>.env</code> file and scan it for exposed credentials before you commit.</p>
+  <a class="step-cta" href="https://labs.copperbaytech.com/leakcheck/">Run LeakCheck →</a>
+
+  <h2><span class="num">2.</span> Is your live site leaking files?</h2>
+  <p>Even if your code is clean, your <em>deployed</em> site can expose things it shouldn't: a reachable <code>.env</code> or <code>.git</code> folder, secrets baked into your JavaScript bundle, or source maps that hand attackers your original code. Point this at your live URL.</p>
+  <a class="step-cta" href="https://labs.copperbaytech.com/exposurecheck/">Run ExposureCheck →</a>
+
+  <h2><span class="num">3.</span> Are your dependencies a liability?</h2>
+  <p>AI tools love to <code>npm install</code> their way out of a problem. Paste your <code>package.json</code> and flag dependencies that are known-vulnerable, abandoned, typosquatted, or carry a license that could bite you later.</p>
+  <a class="step-cta" href="https://labs.copperbaytech.com/depcheck/">Run DepCheck →</a>
+
+  <h2><span class="num">4.</span> Are your security headers set?</h2>
+  <p>Missing security headers are the difference between an A and an F on most automated security scans — and they're a five-minute fix once you know which ones are missing. Get a plain-English report card on your headers, CSP, and cookie flags.</p>
+  <a class="step-cta" href="https://labs.copperbaytech.com/hardencheck/">Run HardenCheck →</a>
+
+  <h2><span class="num">5.</span> Is it accessible and privacy-safe?</h2>
+  <p>Accessibility (ADA/WCAG) and privacy gaps are the stuff of demand letters — and AI-generated front ends are full of them: missing alt text, unlabeled inputs, no privacy disclosure. Paste a URL and get a plain-English risk report.</p>
+  <a class="step-cta" href="https://labs.copperbaytech.com/shipsafe/">Run ShipSafe →</a>
+
+  <h2><span class="num">6.</span> Do you have the legal basics?</h2>
+  <p>If you collect any data — even just an email signup — you likely need a privacy policy and a working cookie-consent banner. Generate a starting template in minutes.</p>
+  <a class="step-cta" href="https://labs.copperbaytech.com/complykit/">Open ComplyKit →</a>
+
+  <div class="callout">
+    <strong>A note on honesty:</strong> these are heuristic scanners — a fast first pass, not a full audit or legal advice. They'll have false positives and won't catch everything. Think of them as the gut-check a security-minded teammate would do before you ship, not a replacement for a real review when the stakes are high.
+  </div>
+
+  <h2>The copy-paste checklist</h2>
+  <div class="checklist">
+  <ul>
+    <li>☐ Scanned code / <code>.env</code> for leaked secrets — <a href="https://labs.copperbaytech.com/leakcheck/">LeakCheck</a></li>
+    <li>☐ Checked live site for exposed files &amp; source maps — <a href="https://labs.copperbaytech.com/exposurecheck/">ExposureCheck</a></li>
+    <li>☐ Audited dependencies for vulns &amp; risk — <a href="https://labs.copperbaytech.com/depcheck/">DepCheck</a></li>
+    <li>☐ Set security headers &amp; cookie flags — <a href="https://labs.copperbaytech.com/hardencheck/">HardenCheck</a></li>
+    <li>☐ Confirmed accessibility &amp; privacy basics — <a href="https://labs.copperbaytech.com/shipsafe/">ShipSafe</a></li>
+    <li>☐ Generated privacy policy &amp; consent banner — <a href="https://labs.copperbaytech.com/complykit/">ComplyKit</a></li>
+  </ul>
+  </div>
+
+  <h2>Ship with confidence</h2>
+  <p>Run the six checks, fix what's red, and you've cleared the issues that catch the overwhelming majority of fast-shipped apps. All six tools are free, require no signup, and run entirely in your browser — <a href="/">bookmark the full suite</a> so it's there for your next launch.</p>
+  <p>And if a scan turns up something you'd rather hand off, each tool offers a no-obligation fix quote — the Copper Bay Tech team can remediate exactly what it found.</p>
+</article>
+</main>
+
+<footer class="site"><div class="wrap">
+  <p><span class="label">Copper Bay Labs</span> — free tools for the whole internet.</p>
+  <p>Want a tool built for you? <a href="https://copperbaytech.com" target="_blank" rel="noopener">copperbaytech.com</a></p>
+</div></footer>
+</body>
+</html>
